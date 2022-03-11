@@ -44,7 +44,10 @@ export default function AddPostForm() {
 
         <button
           onClick={onAddPost}
-          className="bg-blue-400 block rounded px-4 py-2 mt-2 font-bold text-white"
+          className={
+            'bg-blue-400 block rounded px-4 py-2 mt-2 font-bold text-white' +
+            (canSave ? ' hover:bg-blue-600' : '')
+          }
           disabled={!canSave}
           type="button"
         >
