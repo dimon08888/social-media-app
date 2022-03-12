@@ -24,9 +24,9 @@ export default function AddPostForm() {
 
   return (
     <section className="max-w-2xl mx-auto">
-      <h2 className="text-center font-bold text-2xl my-5">Add new post</h2>
+      <h2 className="text-center font-bold text-2xl my-5 text-white">Add new post</h2>
       <form className="">
-        <label htmlFor="postTitle" className="block font-bold">
+        <label htmlFor="postTitle" className="block font-bold text-white py-2">
           Post Title:
         </label>
         <input
@@ -37,10 +37,15 @@ export default function AddPostForm() {
           value={title}
         />
 
-        <label htmlFor="postAuthor" className="block font-bold">
+        <label htmlFor="postAuthor" className="block font-bold text-white py-2">
           Author:
         </label>
-        <select id="postAuthor" value={userId} onChange={e => setUserId(e.target.value)}>
+        <select
+          className="text-black cursor-pointer rounded"
+          id="postAuthor"
+          value={userId}
+          onChange={e => setUserId(e.target.value)}
+        >
           <option value=""></option>
           {users.map(user => (
             <option key={user.id} value={user.id}>
@@ -49,7 +54,7 @@ export default function AddPostForm() {
           ))}
         </select>
 
-        <label htmlFor="postContent" className="block font-bold">
+        <label htmlFor="postContent" className="block font-bold text-white py-2">
           Content:
         </label>
         <textarea
@@ -62,8 +67,8 @@ export default function AddPostForm() {
         <button
           onClick={onAddPost}
           className={
-            'bg-blue-400 block rounded px-4 py-2 mt-2 font-bold text-white' +
-            (canSave ? ' hover:bg-blue-600' : '')
+            'bg-slate-500 block rounded px-4 py-2 mt-2 font-bold text-white' +
+            (canSave ? ' hover:bg-slate-400' : '')
           }
           disabled={!canSave}
           type="button"

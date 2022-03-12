@@ -13,15 +13,17 @@ export function UserPage() {
   }
 
   return (
-    <section>
-      <h2>{user.name}</h2>
-      <ul>
-        {userPosts.map(post => (
-          <li key={post.id}>
-            <Link to={`/posts/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
+    <section className="text-center">
+      <h2 className="mt-5 text-white text-xl font-bold">{user.name}</h2>
+      <div className="flex justify-center">
+        <ul>
+          {userPosts.map(post => (
+            <li className=" mt-5 hover:underline text-white " key={post.id}>
+              <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

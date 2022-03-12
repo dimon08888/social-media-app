@@ -28,10 +28,11 @@ export function EditPostForm() {
   }
 
   return (
-    <section>
-      <h2 className="text-center font-bold text-2xl my-5">Edit post</h2>
-      <form className="">
-        <label htmlFor="postTitle" className="block font-bold">
+    <section className="max-w-2xl mx-auto">
+      <h2 className="text-center font-bold text-2xl my-5 text-white">Edit post</h2>
+
+      <form>
+        <label htmlFor="postTitle" className="block font-bold text-white mb-2">
           Post Title:
         </label>
         <input
@@ -42,10 +43,15 @@ export function EditPostForm() {
           onChange={e => setTitle(e.target.value)}
         />
 
-        <label htmlFor="postAuthor" className="block font-bold">
+        <label htmlFor="postAuthor" className="block font-bold text-white my-2">
           Author:
         </label>
-        <select id="postAuthor" value={userId} onChange={e => setUserId(e.target.value)}>
+        <select
+          className="cursor-pointer"
+          id="postAuthor"
+          value={userId}
+          onChange={e => setUserId(e.target.value)}
+        >
           <option value=""></option>
           {users.map(user => (
             <option key={user.id} value={user.id}>
@@ -54,7 +60,7 @@ export function EditPostForm() {
           ))}
         </select>
 
-        <label htmlFor="postContent" className="block font-bold">
+        <label htmlFor="postContent" className="block font-bold text-white my-2">
           Content:
         </label>
         <textarea

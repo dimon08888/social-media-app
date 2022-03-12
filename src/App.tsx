@@ -24,18 +24,18 @@ function App() {
 
 function Header() {
   return (
-    <header className="bg-purple-700 text-white font-bold">
+    <header className="bg-black text-white font-bold">
       <nav className="grid grid-cols-3 items-center">
         <div>
           <Link
             to={'/'}
-            className="bg-purple-800 px-3 py-2 rounded hover:bg-purple-900 cursor-pointer transition-colors duration-400 inline-block ml-2"
+            className="bg-slate-500 px-3 py-2 rounded hover:bg-slate-400 cursor-pointer transition-colors duration-400 inline-block ml-2"
           >
             Posts
           </Link>
           <Link
             to={'/users'}
-            className="bg-purple-800 px-3 py-2 rounded hover:bg-purple-900 cursor-pointer transition-colors duration-400 inline-block ml-2"
+            className="bg-slate-500 px-3 py-2 rounded hover:bg-slate-400 cursor-pointer transition-colors duration-400 inline-block ml-2"
           >
             Users
           </Link>
