@@ -4,6 +4,7 @@ import './App.css';
 import { Posts } from './features/posts/Posts';
 import { Post } from './features/posts/Post';
 import { Users } from './features/users/Users';
+import { EditPostForm } from './features/posts/EditPostForm';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Posts />} />
         <Route path="/posts/:postId" element={<Post />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/posts/:postId/edit" element={<EditPostForm />} />
       </Routes>
     </BrowserRouter>
   );
@@ -25,13 +27,13 @@ function Header() {
         <div>
           <Link
             to={'/'}
-            className="bg-purple-800 px-3 py-2 rounded hover:bg-purple-900 cursor-pointer transition-colors duration-400 inline-block"
+            className="bg-purple-800 px-3 py-2 rounded hover:bg-purple-900 cursor-pointer transition-colors duration-400 inline-block ml-2"
           >
             Posts
           </Link>
           <Link
             to={'/users'}
-            className="bg-purple-800 px-3 py-2 rounded hover:bg-purple-900 cursor-pointer transition-colors duration-400 inline-block"
+            className="bg-purple-800 px-3 py-2 rounded hover:bg-purple-900 cursor-pointer transition-colors duration-400 inline-block ml-2"
           >
             Users
           </Link>
