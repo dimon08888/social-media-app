@@ -27,16 +27,17 @@ const postsSlice = createSlice({
       reducer: (state, action) => {
         state.posts.push(action.payload);
       },
-      prepare: ((title: string, content: string) => {
-        return { payload: { id: nanoid(), title, content } };
+      prepare: ((title: string, content: string, userId: string) => {
+        return { payload: { id: nanoid(), title, content, user: userId } };
       }) as any,
     },
     postUpdate: (state, action) => {
-      const { id, title, content } = action.payload;
+      const { id, title, content, user } = action.payload;
       const existingPost = state.posts.find(post => post.id === id);
       if (existingPost) {
         existingPost.title = title;
         existingPost.content = content;
+        existingPost.user = user;
       }
     },
   },

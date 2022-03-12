@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
 import { selectAllPosts } from './postsSlice';
 import { Link } from 'react-router-dom';
+import { PostAuthor } from './PostsList';
 
 export function Post() {
   const { postId } = useParams();
@@ -17,7 +18,10 @@ export function Post() {
     <div>
       <h2>{post.title}</h2>
       <div>{post.content}</div>
-      <Link to={`/posts/${postId}/edit`}>Edit Post</Link>
+      <PostAuthor userId={post.user} />
+      <div>
+        <Link to={`/posts/${postId}/edit`}>Edit Post</Link>
+      </div>
     </div>
   );
 }

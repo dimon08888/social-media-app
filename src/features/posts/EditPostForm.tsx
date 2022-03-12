@@ -2,20 +2,23 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { postUpdate, selectPostById } from './postsSlice';
 import { useNavigate, useParams } from 'react-router-dom';
+import { selectAllUsers } from '../users/usersSlice';
 
 export function EditPostForm() {
   const { postId } = useParams();
   const post = useAppSelector(state => selectPostById(state, postId as string));
+  const users = useAppSelector(selectAllUsers);
 
   const [title, setTitle] = useState(post ? post.title : '');
   const [content, setContent] = useState(post ? post.content : '');
+  const [userId, setUserId] = useState(post ? post.user : '');
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   function onEditPost() {
     if (title && content) {
-      dispatch(postUpdate({ id: postId, title, content }));
+      dispatch(postUpdate({ id: postId, title, content, user: userId }));
       navigate(`/posts/${postId}`);
     }
   }
@@ -38,6 +41,18 @@ export function EditPostForm() {
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
+
+        <label htmlFor="postAuthor" className="block font-bold">
+          Author:
+        </label>
+        <select id="postAuthor" value={userId} onChange={e => setUserId(e.target.value)}>
+          <option value=""></option>
+          {users.map(user => (
+            <option key={user.id} value={user.id}>
+              {user.name}
+            </option>
+          ))}
+        </select>
 
         <label htmlFor="postContent" className="block font-bold">
           Content:
