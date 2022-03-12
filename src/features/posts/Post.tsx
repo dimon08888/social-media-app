@@ -1,14 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
-import { selectAllPosts } from './postsSlice';
+import { selectPostById } from './postsSlice';
 import { Link } from 'react-router-dom';
 import { PostAuthor } from './PostsList';
 
 export function Post() {
   const { postId } = useParams();
-  const post = useAppSelector(state =>
-    selectAllPosts(state).find(post => post.id === postId),
-  );
+  const post = useAppSelector(state => selectPostById(state, postId as string));
 
   if (!post) {
     return <div>Post with id "{postId}" not found.</div>;

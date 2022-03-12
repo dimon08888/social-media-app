@@ -5,6 +5,7 @@ import { Posts } from './features/posts/Posts';
 import { Post } from './features/posts/Post';
 import { Users } from './features/users/Users';
 import { EditPostForm } from './features/posts/EditPostForm';
+import { UserPage } from './features/users/UserPage';
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Posts />} />
         <Route path="/posts/:postId" element={<Post />} />
-        <Route path="/users" element={<Users />} />
         <Route path="/posts/:postId/edit" element={<EditPostForm />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/users/:userId" element={<UserPage />} />
       </Routes>
     </BrowserRouter>
   );
